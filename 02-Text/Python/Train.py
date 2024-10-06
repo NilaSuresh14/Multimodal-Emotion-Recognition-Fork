@@ -40,10 +40,10 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential, Model, model_from_json
-from tensorflow.keras.layers.normalization import BatchNormalization
-from tensorflow.keras.layers.embeddings import Embedding
-from tensorflow.keras.layers import Dense, LSTM, SpatialDropout1D, Activation, Conv1D, MaxPooling1D, Input, concatenate
-from tensorflow.keras.utils.np_utils import to_categorical
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.layers import Embedding, Dense, LSTM, SpatialDropout1D, Activation, Conv1D, MaxPooling1D, Input, concatenate
+from tensorflow.keras.utils import to_categorical
+
 
 
 class TrainModel:
