@@ -37,18 +37,20 @@ from sklearn.multiclass import OneVsRestClassifier
 
 import tensorflow as tf
 
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import Sequential, Model, model_from_json
-from keras.layers.normalization import BatchNormalization
-from keras.layers.embeddings import Embedding
-from keras.layers import Dense, LSTM, SpatialDropout1D, Activation, Conv1D, MaxPooling1D, Input, concatenate
-from keras.utils.np_utils import to_categorical
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Sequential, Model, model_from_json
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.layers import Embedding
+from tensorflow.keras.layers import Dense, LSTM, SpatialDropout1D, Activation, Conv1D, MaxPooling1D, Input, concatenate
+from tensorflow.keras.utils import to_categorical
 
 
-class train:
+
+class TrainModel:
 
     def __init__(self, corpus):
+        self.X = corpus
         self.max_sentence_len = 300
         self.max_features = 300
         self.embed_dim = 300
@@ -150,7 +152,7 @@ class train:
             """
             Returns a vectorized padded version of sequences.
             """
-            save_path = "Data/padding.pickle"
+            save_path = "/content/Multimodal-Emotion-Recognition-Fork/02-Text/Data/padding.pickle"
             with open(save_path, 'rb') as f:
                 tokenizer = pickle.load(f)
             doc_pad = tokenizer.texts_to_sequences(doc)
